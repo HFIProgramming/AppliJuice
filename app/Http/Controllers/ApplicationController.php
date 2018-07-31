@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\College;
+use App\Events\newCollege;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,7 @@ class ApplicationController extends Controller
         {
             if(empty($college = College::name($offer)->first()))
             {
-                $college = College::create(['name' => $offer]);
+                event(new newCollege($offer));
             }
             $applicant->offers()->create(['college_id' => $college->id]);
         }
