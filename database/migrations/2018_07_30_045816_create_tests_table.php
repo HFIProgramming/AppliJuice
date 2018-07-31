@@ -17,7 +17,7 @@ class CreateTestsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('sections');
-            $table->text('required_sections');//must be a subset of the above, apparently
+            $table->text('required_sections');
             $table->timestamps();
         });
     }
