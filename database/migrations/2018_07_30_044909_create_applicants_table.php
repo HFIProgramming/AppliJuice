@@ -22,7 +22,7 @@ class CreateApplicantsTable extends Migration
             $table->string('nationality')->nullable();
             $table->text('visibility');//For now: HFI, public
 //            $table->string('anonymous');
-            $table->text('offers');
+//            $table->text('offers');
             $table->timestamps();
         });
     }
