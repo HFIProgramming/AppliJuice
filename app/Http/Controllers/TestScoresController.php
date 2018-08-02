@@ -27,7 +27,7 @@ class TestScoresController extends Controller
             {
                 if(in_array($section_name, $test->required_sections) && empty($section_score))
                 {
-                    abort(500);
+                    return "Redo";
                 }
             }
             $test->scores()->create([

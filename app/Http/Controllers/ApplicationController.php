@@ -39,7 +39,7 @@ class ApplicationController extends Controller
 
     }
 
-    public function editApplicantInfo(Request $request)
+    public function editApplication(Request $request)
     {
 
     }
