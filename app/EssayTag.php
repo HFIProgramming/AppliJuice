@@ -8,4 +8,9 @@ class EssayTag extends Model
 {
     //
     protected $fillable = ['tag', 'type'];
+
+    public function essays()
+    {
+        return $this->belongsToMany(Essay::class, 'essaytag_essay', 'essay_tag_id', 'essay_id');
+    }
 }
