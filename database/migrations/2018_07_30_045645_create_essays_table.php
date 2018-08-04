@@ -18,7 +18,6 @@ class CreateEssaysTable extends Migration
             $table->integer('applicant_id');
             $table->text('prompt');
             $table->text('content');
-            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }
