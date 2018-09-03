@@ -7,89 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Site Properties -->
-    <title>Sticky Example - Semantic</title>
+    <title>New Essay - AppliJuice</title>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
-    <script>
-    $(document)
-        .ready(function() {
-
-            // fix main menu to page on passing
-            $('.main.menu').visibility({
-                type: 'fixed'
-            });
-            $('.overlay').visibility({
-                type: 'fixed',
-                offset: 80
-            });
-
-            // lazy load images
-            $('.image').visibility({
-                type: 'image',
-                transition: 'vertical flip in',
-                duration: 500
-            });
-
-            // show dropdown on hover
-            $('.main.menu  .ui.dropdown').dropdown({
-                on: 'hover'
-            });
-        });
-
-    $('.ui.checkbox')
-        .checkbox();
-
-    </script>
     <style type="text/css">
     body {
         background-color: #FFFFFF;
     }
 
-    .main.container {
-        margin-top: 2em;
-    }
-
-    .main.menu {
-        margin-top: 4em;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        transition: box-shadow 0.5s ease,
-        padding 0.5s ease;
-    }
-
-    .main.menu .item img.logo {
+    .ui.menu .item img.logo {
         margin-right: 1.5em;
     }
 
-    .overlay {
-        float: left;
-        margin: 0em 3em 1em 0em;
+    .main.container {
+        margin-top: 7em;
     }
 
-    .overlay .menu {
-        position: relative;
-        left: 0;
-        transition: left 0.5s ease;
-    }
-
-    .main.menu.fixed {
-        background-color: #FFFFFF;
-        border: 1px solid #DDD;
-        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .overlay.fixed .menu {
-        left: 800px;
-    }
-
-    .text.container .left.floated.image {
-        margin: 2em 2em 2em -4em;
-    }
-
-    .text.container .right.floated.image {
-        margin: 2em -4em 2em 2em;
+    .wireframe {
+        margin-top: 2em;
     }
 
     .ui.footer.segment {
@@ -101,18 +37,35 @@
 </head>
 
 <body>
-    <div class="ui main text container">
-        <h1 class="ui header">您今天想交几份essay呢？</h1>
-        <p>Please Fill Out Your Essay</p>
-    </div>
-    <div class="ui borderless main menu">
-        <div class="ui text container">
-            <div class="header item">
-                <img class="logo" src="thereWillBeASource"> AppliJuice
-            </div>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <a href="#" class="header item">
+        <img class="logo" src="assets/images/logo.png">
+        Project Name
+      </a>
             <a href="#" class="item">Home</a>
-            <a href="#" class="item">SomeButton</a>
+            <div class="ui simple dropdown item">
+                Dropdown <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="#">Link Item</a>
+                    <a class="item" href="#">Link Item</a>
+                    <div class="divider"></div>
+                    <div class="header">Header Item</div>
+                    <div class="item">
+                        <i class="dropdown icon"></i> Sub Menu
+                        <div class="menu">
+                            <a class="item" href="#">Link Item</a>
+                            <a class="item" href="#">Link Item</a>
+                        </div>
+                    </div>
+                    <a class="item" href="#">Link Item</a>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="ui main text container" style="margin-top: 80px;margin-bottom: 30px;">
+        <h1 class="ui header">您今天要交几份Essay呢？</h1>
+        <p>Please Fill Out Your Info</p>
     </div>
     <div class="ui text container">
         <div class="ui tag label">Ivy League
@@ -128,8 +81,8 @@
             <div class="field">
                 <label>Essay Prompt</label>
                 <div class="ui input focus">
-                <input type="text" name="first-name" placeholder="Please copy and paste your essay prompt">
-            </div>
+                    <input type="text" name="first-name" placeholder="Please copy and paste your essay prompt">
+                </div>
             </div>
             <div class="field">
                 <label>Essay</label>
