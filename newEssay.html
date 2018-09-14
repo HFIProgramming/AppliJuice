@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Site Properties -->
-    <title>New Applicant - AppliJuice</title>
+    <title>New Essay - AppliJuice</title>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
@@ -64,34 +64,29 @@
         </div>
     </div>
     <div class="ui main text container" style="margin-top: 80px;margin-bottom: 30px;">
-        <h1 class="ui header">您好呀有大学读的人！</h1>
+        <h1 class="ui header">您今天要交几份Essay呢？</h1>
         <p>Please Fill Out Your Info</p>
     </div>
     <div class="ui text container">
+        <div class="ui tag label">Ivy League
+            <div class="detail">5</div>
+        </div>
+        <div class="ui tag label">Harvard University
+            <div class="detail">2</div>
+        </div>
+        <div class="ui tag label">Personal Statement
+            <div class="detail">4</div>
+        </div>
         <form class="ui form">
             <div class="field">
-                <label>First Name</label>
-                <input type="text" name="first-name" placeholder="First Name">
-            </div>
-            <div class="field">
-                <label>Last Name</label>
-                <input type="text" name="last-name" placeholder="Last Name">
-            </div>
-            <div class="field">
-                <label>Gender</label>
-                <div class="ui buttons">
-                    <button class="blue ui button">Male</button>
-                    <div class="or"></div>
-                    <button class="red ui button">Female</button>
+                <label>Essay Prompt</label>
+                <div class="ui input focus">
+                    <input type="text" name="first-name" placeholder="Please copy and paste your essay prompt">
                 </div>
             </div>
             <div class="field">
-                <label>Visibility</label>
-                <div class="ui buttons">
-                    <button class="ui positive button">HFI Only</button>
-                    <div class="or"></div>
-                    <button class="ui button">Public</button>
-                </div>
+                <label>Essay</label>
+                <textarea type="text" name="last-name" placeholder="essayText"></textarea>
             </div>
             <br>
             <button class="ui button" type="submit">Submit</button>
