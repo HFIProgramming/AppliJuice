@@ -23,11 +23,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'applicant'], function () {
         Route::get('/create', 'ApplicationController@newApplicationForm')->name('newApplicationForm');
         Route::post('/create', 'ApplicationController@createApplication');
-        Route::group(['middleware' => 'applicant'], function () {
-           Route::get('/hfiverify', 'ApplicationController@HFIVerifyForm');
-           Route::post('/hfiverify', 'ApplicationController@HFIVerify');
-        });
     });
+
+    Route::get('/hfiverify', 'UserController@HFIVerifyForm');
+    Route::post('/hfiverify', 'UserController@HFIVerify');
 
     Route::group(['prefix' => 'essay'], function () {
         Route::group(['middleware' => 'applicant'], function () {

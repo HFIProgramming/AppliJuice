@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\College;
 use App\Events\newCollege;
+use App\HFIStudent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,16 +45,6 @@ class ApplicationController extends Controller
     }
 
     public function editApplication(Request $request)
-    {
-
-    }
-
-    public function HFIVerifyForm()
-    {
-
-    }
-
-    public function HFIVerify(Request $request)
     {
 
     }
