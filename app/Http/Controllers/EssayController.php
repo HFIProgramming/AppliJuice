@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\College;
 use App\Essay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EssayController extends Controller
 {
     //
-    public function essayForm()
+    public function essayForm(Request $request)
     {
-
+        return view('essay.create');
     }
 
     public function submitEssay(Request $request)

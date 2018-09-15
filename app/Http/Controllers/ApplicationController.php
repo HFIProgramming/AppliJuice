@@ -16,12 +16,16 @@ class ApplicationController extends Controller
 
     public function newApplicationForm()
     {
-
+        if(!empty(Auth::user()->applicant()))
+        {
+            return "existed";
+        }
+        return view('applicantInfo.create');
     }
 
     public function createApplication(Request $request)
     {
-        $applicant = Auth::user()->applicant()->create($request);
+        $applicant = $request->user()->applicant()->create($request);
         $offers = $request->offers;
         foreach($offers as $offer)
         {
@@ -40,6 +44,16 @@ class ApplicationController extends Controller
     }
 
     public function editApplication(Request $request)
+    {
+
+    }
+
+    public function HFIVerifyForm()
+    {
+
+    }
+
+    public function HFIVerify(Request $request)
     {
 
     }

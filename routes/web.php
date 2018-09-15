@@ -18,3 +18,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'applicant'], function () {
+        Route::get('/create', 'ApplicationController@newApplicationForm')->name('newApplicationForm');
+        Route::post('/create', 'ApplicationController@createApplication');
+        Route::group(['middleware' => 'applicant'], function () {
+           Route::get('/hfiverify', 'ApplicationController@HFIVerifyForm');
+           Route::post('/hfiverify', 'ApplicationController@HFIVerify');
+        });
+    });
+
+    Route::group(['prefix' => 'essay'], function () {
+        Route::group(['middleware' => 'applicant'], function () {
+            Route::get('/create', 'EssayController@essayForm');
+            Route::post('/create', 'EssayController@submitEssay');
+        });
+    });
+});
