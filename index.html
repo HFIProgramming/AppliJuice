@@ -8,11 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Site Properties -->
     <title>AppliJuice</title>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-
-    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
     <style type="text/css">
     body {
         background-color: #FFFFFF;
@@ -39,104 +36,107 @@
 </head>
 
 <body>
-    <div class="ui fixed inverted menu">
-        <div class="ui container">
-            <a href="#" class="header item">
-        <img class="logo" src="assets/images/logo.png">
-        AppliJuice
-      </a>
-            <a href="#" class="item">Home</a>
-            <div class="ui simple dropdown item">
-                Dropdown <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a class="item" href="#">Link Item</a>
-                    <a class="item" href="#">Link Item</a>
-                    <div class="divider"></div>
-                    <div class="header">Header Item</div>
-                    <div class="item">
-                        <i class="dropdown icon"></i> Sub Menu
-                        <div class="menu">
-                            <a class="item" href="#">Link Item</a>
-                            <a class="item" href="#">Link Item</a>
+    <ul class="layui-nav" lay-filter="">
+        <li class="layui-nav-item" style="width: 10%;"></li>
+        <li class="layui-nav-item"><a href="">AppliJuice</a></li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">我是一个也许能用上的下拉菜单</a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <dd><a href="">移动模块</a></dd>
+                <dd><a href="">后台模版</a></dd>
+                <dd><a href="">电商平台</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">我是一个按钮</a></li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md2 layui-col-md-offset5">
+                <ul class="layui-timeline">
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">09.20</h3>
+                            <p>
+                                剑桥截止。
+                            </p>
                         </div>
-                    </div>
-                    <a class="item" href="#">Link Item</a>
-                </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">10.15</h3>
+                            <p>
+                                北卡截止。
+                                <br> 牛津截止。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">11.01</h3>
+                            <p>
+                                ED.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">呃忘了</h3>
+                            <p>
+                                加州系列截止。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <h3 class="layui-timeline-title">我忘了是啥时候</h3>
+                            <p>
+                                RD
+                            </p>
+                        </div>
+                    </li>
+                    <li class="layui-timeline-item">
+                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                        <div class="layui-timeline-content layui-text">
+                            <div class="layui-timeline-title">jsl</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col-md8 layui-col-md-offset2" style="text-align:center">
+                <h1>而你，文书还在被马哥说：“申个前200倒还可以“？</h1>
+                <br>
+                <h1>而你，希望当年的自己能有更多优秀的文书作参考？</h1>
+            </div>
+        </div>
+        <br><br>
+        <div class="layui-row">
+            <div class="layui-col-md2 layui-col-md-offset4" style="text-align:center">
+                <button class="layui-btn layui-btn-lg layui-btn-radius">已有大学</button>
+            </div>
+            <div class="layui-row-md2">
+                <button class="layui-btn layui-btn-lg layui-btn-radius">没有大学</button>
             </div>
         </div>
     </div>
+    <script>
+    layui.use('element', function() {
+        var element = layui.element;
 
+        //…
+    });
 
-
-    <div class="ui grid">
-      <div class="two wide column"></div>
-      <div class="six wide column">
-        <div class="ui sizer vertical segment">
-            <div class="ui huge header" style="font-size: 80px">您有大学上？</div>
-            <p class="ui huge header">那您真是来对地方了！在这个网站，您可以把您的文书贡献出来，不得到一分回报！</p>
-        </div>
-                <div class="ui sizer vertical segment">
-            <div class="ui huge header" style="font-size: 80px">您想上大学？</div>
-            <p class="ui huge header">那您真是来对地方了！在这个网站，您能看有大学上的人的文书，接着想吧！</p>
-        </div>
-      </div>
-      <div class="six wide column">
-        <button class="ui red basic button" style="width=100px">Red</button>
-      </div>
-      <div class="two wide column">
-      </div>
-    </div>
-
-
-<!--     <div class="ui main text container" style="margin-top: 80px;margin-bottom: 30px;">
-        <h1 class="ui header">您好呀有大学读的人！</h1>
-        <p>Please Fill Out Your Info</p>
-    </div>
-    <div class="ui text container">
-        <form class="ui form">
-            <div class="field">
-                <label>First Name</label>
-                <input type="text" name="first-name" placeholder="First Name">
-            </div>
-            <div class="field">
-                <label>Last Name</label>
-                <input type="text" name="last-name" placeholder="Last Name">
-            </div>
-            <div class="field">
-                <label>Gender</label>
-                <div class="ui buttons">
-                    <button class="blue ui button">Male</button>
-                    <div class="or"></div>
-                    <button class="red ui button">Female</button>
-                </div>
-            </div>
-            <div class="field">
-                <label>Visibility</label>
-                <div class="ui buttons">
-                    <button class="ui positive button">HFI Only</button>
-                    <div class="or"></div>
-                    <button class="ui button">Public</button>
-                </div>
-            </div>
-            <br>
-            <button class="ui button" type="submit">Submit</button>
-        </form>
-    </div> -->
-
-
-
-    <div class="ui inverted vertical footer segment">
-        <div class="ui center aligned container">
-            <div class="ui inverted section divider"></div>
-            <div class="ui horizontal inverted small divided link list">
-                <a class="item"> nothing inside</a>
-                <a class="item" href="#">Site Map</a>
-                <a class="item" href="#">Contact Us</a>
-                <a class="item" href="#">Terms and Conditions</a>
-                <a class="item" href="#">Privacy Policy</a>
-            </div>
-        </div>
-    </div>
+    </script>
 </body>
 
 </html>
