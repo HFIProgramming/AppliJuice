@@ -8,102 +8,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Site Properties -->
     <title>New Essay - AppliJuice</title>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <style type="text/css">
-    body {
-        background-color: #FFFFFF;
-    }
-
-    .ui.menu .item img.logo {
-        margin-right: 1.5em;
-    }
-
-    .main.container {
-        margin-top: 7em;
-    }
-
-    .wireframe {
-        margin-top: 2em;
-    }
-
-    .ui.footer.segment {
-        margin: 5em 0em 0em;
-        padding: 5em 0em;
-    }
-
-    </style>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
 </head>
 
 <body>
-    <div class="ui fixed inverted menu">
-        <div class="ui container">
-            <a href="#" class="header item">
-        <img class="logo" src="assets/images/logo.png">
-        Project Name
-      </a>
-            <a href="#" class="item">Home</a>
-            <div class="ui simple dropdown item">
-                Dropdown <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a class="item" href="#">Link Item</a>
-                    <a class="item" href="#">Link Item</a>
-                    <div class="divider"></div>
-                    <div class="header">Header Item</div>
-                    <div class="item">
-                        <i class="dropdown icon"></i> Sub Menu
-                        <div class="menu">
-                            <a class="item" href="#">Link Item</a>
-                            <a class="item" href="#">Link Item</a>
+    <ul class="layui-nav" lay-filter="">
+        <li class="layui-nav-item" style="width: 10%;"></li>
+        <li class="layui-nav-item"><a href="">AppliJuice</a></li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">我是一个也许能用上的下拉菜单</a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <dd><a href="">移动模块</a></dd>
+                <dd><a href="">后台模版</a></dd>
+                <dd><a href="">电商平台</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">我是一个按钮</a></li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <div class="layui-container">
+        <div class="layui-row" style="text-align:center">
+            <h1> 今天您想交几份Essay呢？ </h1>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="layui-row">
+            <div class="layui-col-md8 layui-col-md-offset2">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+    <label class="layui-form-label">选择框</label>
+    <div class="layui-input-block">
+      <select name="city" lay-verify="required">
+        <option value=""></option>
+        <option value="0">北京</option>
+        <option value="1">上海</option>
+        <option value="2">广州</option>
+        <option value="3">深圳</option>
+        <option value="4">杭州</option>
+      </select>
+    </div>
+  </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">Essay Prompt</label>
+                        <div class="layui-input-block">
+                            <textarea name="desc" class="layui-textarea"></textarea>
                         </div>
                     </div>
-                    <a class="item" href="#">Link Item</a>
-                </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">Essay</label>
+                        <div class="layui-input-block">
+                            <textarea name="desc" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="newApplicant">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="ui main text container" style="margin-top: 80px;margin-bottom: 30px;">
-        <h1 class="ui header">您今天要交几份Essay呢？</h1>
-        <p>Please Fill Out Your Info</p>
-    </div>
-    <div class="ui text container">
-        <div class="ui tag label">Ivy League
-            <div class="detail">5</div>
-        </div>
-        <div class="ui tag label">Harvard University
-            <div class="detail">2</div>
-        </div>
-        <div class="ui tag label">Personal Statement
-            <div class="detail">4</div>
-        </div>
-        <form class="ui form">
-            <div class="field">
-                <label>Essay Prompt</label>
-                <div class="ui input focus">
-                    <input type="text" name="first-name" placeholder="Please copy and paste your essay prompt">
-                </div>
-            </div>
-            <div class="field">
-                <label>Essay</label>
-                <textarea type="text" name="last-name" placeholder="essayText"></textarea>
-            </div>
-            <br>
-            <button class="ui button" type="submit">Submit</button>
-        </form>
-    </div>
-    <div class="ui inverted vertical footer segment">
-        <div class="ui center aligned container">
-            <div class="ui inverted section divider"></div>
-            <div class="ui horizontal inverted small divided link list">
-                <a class="item"> nothing inside</a>
-                <a class="item" href="#">Site Map</a>
-                <a class="item" href="#">Contact Us</a>
-                <a class="item" href="#">Terms and Conditions</a>
-                <a class="item" href="#">Privacy Policy</a>
-            </div>
-        </div>
-    </div>
+    <script>
+    layui.use(['element', 'form']function() {
+        var element = layui.element
+            ,form = layui.form;
+
+        //…
+    });
+
+    form.on('submit(newApplicant)', function(data) {
+        layer.msg(JSON.stringify(data.field));
+        return false;
+    });
+
+    </script>
 </body>
 
 </html>

@@ -10,29 +10,6 @@
     <title>AppliJuice</title>
     <link rel="stylesheet" href="layui/css/layui.css">
     <script src="layui/layui.js"></script>
-    <style type="text/css">
-    body {
-        background-color: #FFFFFF;
-    }
-
-    .ui.menu .item img.logo {
-        margin-right: 1.5em;
-    }
-
-    .main.container {
-        margin-top: 7em;
-    }
-
-    .wireframe {
-        margin-top: 2em;
-    }
-
-    .ui.footer.segment {
-        margin: 5em 0em 0em;
-        padding: 5em 0em;
-    }
-
-    </style>
 </head>
 
 <body>
@@ -130,8 +107,9 @@
         </div>
     </div>
     <script>
-    layui.use('element', function() {
-        var element = layui.element;
+    layui.use(['element','form'] function() {
+        var element = layui.element
+        ,form = layui.form;
 
         //…
     });
