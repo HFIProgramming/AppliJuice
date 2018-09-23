@@ -76,20 +76,20 @@
             </div>
         </div>
     </div>
-    <script>
-    layui.use(['element', 'form']function() {
-        var element = layui.element
-            ,form = layui.form;
-
-        //…
-    });
-
-    form.on('submit(newApplicant)', function(data) {
+    <script src="layui/layui.js"></script>
+<script>
+//一般直接写在一个js文件中
+layui.use(['element', 'form'], function(){
+  var element = layui.element
+  ,form = layui.form;
+  
+      form.on('submit(newApplicant)', function(data) {
         layer.msg(JSON.stringify(data.field));
         return false;
     });
+});
+</script> 
 
-    </script>
 </body>
 
 </html>
