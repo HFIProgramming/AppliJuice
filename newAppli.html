@@ -35,7 +35,9 @@
         <div class="layui-row" style="text-align:center">
             <h1> Hello! New Applicant! </h1>
         </div>
-        <br><br><br>
+        <br>
+        <br>
+        <br>
         <div class="layui-row">
             <div class="layui-col-md8 layui-col-md-offset4">
                 <form class="layui-form" action="">
@@ -55,15 +57,15 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">Gender</label>
                         <div class="layui-input-block">
-                            <input type="button" class="layui-btn layui-btn-radius" name="sex" value="male" title="男">
-                            <input type="button" class="layui-btn layui-btn-radius" name="sex" value="female" title="女">
+                            <input type="radio" name="sex" value="male" title="male">
+                            <input type="radio" name="sex" value="female" title="female" >
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">Visibility</label>
                         <div class="layui-input-block">
-                            <input type="button" class="layui-btn layui-btn-radius" name="sex" value="HFI Only">
-                            <input type="button" class="layui-btn layui-btn-radius" name="sex" value="Public">
+                            <input type="radio" name="sex" value="hfiOnly" title="HFI Only">
+                            <input type="radio" name="sex" value="public" title="Public" >
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -76,19 +78,18 @@
             </div>
         </div>
     </div>
-    
+    <script src="layui/layui.js"></script>
     <script>
-    layui.use(['element','form'] function() {
-        var element = layui.element
-        ,form = layui.form;
+    //一般直接写在一个js文件中
+    layui.use(['element', 'form'], function() {
+        var element = layui.element,
+            form = layui.form;
 
-        //…
+        form.on('submit(newApplicant)', function(data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
     });
-
-    form.on('submit(newApplicant)', function(data){
-    layer.msg(JSON.stringify(data.field));
-    return false;
-  });
 
     </script>
 </body>

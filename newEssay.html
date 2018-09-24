@@ -41,19 +41,32 @@
         <div class="layui-row">
             <div class="layui-col-md8 layui-col-md-offset2">
                 <form class="layui-form" action="">
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">Tags</label>
+                        <div class="layui-input-inline">
+                            <button class="layui-btn">ucla <i class="layui-icon layui-icon-close"></i></button>
+                        </div>
+                    </div>
                     <div class="layui-form-item">
-    <label class="layui-form-label">选择框</label>
-    <div class="layui-input-block">
-      <select name="city" lay-verify="required">
-        <option value=""></option>
-        <option value="0">北京</option>
-        <option value="1">上海</option>
-        <option value="2">广州</option>
-        <option value="3">深圳</option>
-        <option value="4">杭州</option>
-      </select>
-    </div>
-  </div>
+                        <label class="layui-form-label">Tags</label>
+                                                     <button class="layui-btn">add</button>
+
+                        <div class="layui-input-inline">
+                            <select name="tag" lay-verify="required">
+                                <option value="">plz select</option>
+                                <optgroup label="university">
+                                    <option value="ucla">ucla</option>
+                                    <option value="ucb">ucb</option>
+                                    <option value="wcu">wcu</option>
+                                </optgroup>
+                                <optgroup label="type">
+                                    <option value="whyMajor">why major</option>
+                                    <option value="whySchool">why school</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                    </div>
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">Essay Prompt</label>
                         <div class="layui-input-block">
@@ -68,7 +81,7 @@
                     </div>
                     <div class="layui-form-item">
                         <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit lay-filter="newApplicant">立即提交</button>
+                            <button class="layui-btn" lay-submit lay-filter="newEssay">立即提交</button>
                             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                         </div>
                     </div>
@@ -77,19 +90,25 @@
         </div>
     </div>
     <script src="layui/layui.js"></script>
-<script>
-//一般直接写在一个js文件中
-layui.use(['element', 'form'], function(){
-  var element = layui.element
-  ,form = layui.form;
-  
-      form.on('submit(newApplicant)', function(data) {
-        layer.msg(JSON.stringify(data.field));
-        return false;
-    });
-});
-</script> 
+    <script>
+    //一般直接写在一个js文件中
+    layui.use(['element', 'form'], function() {
+        var element = layui.element,
+            form = layui.form;
 
+        form.on('submit(newApplicant)', function(data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+
+        form.on('select', function(data){
+  console.log(data.elem); //得到select原始DOM对象
+  console.log(data.value); //得到被选中的值
+  console.log(data.othis); //得到美化后的DOM对象
+});     
+    });
+
+    </script>
 </body>
 
 </html>
