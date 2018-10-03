@@ -31,60 +31,111 @@
     <br>
     <br>
     <br>
-    <div class="layui-container">
-        <div class="layui-row" style="text-align:center">
-            <h1> 今天您想交几份Essay呢？ </h1>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div class="layui-row">
-            <div class="layui-col-md8 layui-col-md-offset2">
-                <form class="layui-form" action="">
-                    <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">Tags</label>
-                        <div class="layui-input-inline">
-                            <button class="layui-btn">ucla <i class="layui-icon layui-icon-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">Tags</label>
-                        <button class="layui-btn">add</button>
-                        <div class="layui-input-inline">
-                            <select name="tag" lay-verify="required">
-                                <option value="">plz select</option>
-                                <optgroup label="university">
-                                    <option value="ucla">ucla</option>
-                                    <option value="ucb">ucb</option>
-                                    <option value="wcu">wcu</option>
-                                </optgroup>
-                                <optgroup label="type">
-                                    <option value="whyMajor">why major</option>
-                                    <option value="whySchool">why school</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">Essay Prompt</label>
-                        <div class="layui-input-block">
-                            <textarea name="desc" class="layui-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">Essay</label>
-                        <div class="layui-input-block">
-                            <textarea name="desc" class="layui-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <div class="layui-input-block">
-                            <button class="layui-btn" lay-submit lay-filter="newEssay">立即提交</button>
-                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                        </div>
-                    </div>
-                </form>
+    <div class="layui-container" style="padding: 20px; background-color: #F2F2F2;">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <select name="tag" lay-verify="required">
+                        <option value="">plz select</option>
+                        <optgroup label="university">
+                            <option value="ucla">ucla</option>
+                            <option value="ucb">ucb</option>
+                            <option value="wcu">wcu</option>
+                        </optgroup>
+                        <optgroup label="type">
+                            <option value="whyMajor">why major</option>
+                            <option value="whySchool">why school</option>
+                        </optgroup>
+                    </select>
+                </div>
             </div>
+        </form>
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Tibet Glacial Water</div>
+                    <div class="layui-card-body">
+                        <button class="layui-btn">ucla</button>
+                        <button class="layui-btn">why school</button>
+                        <button class="layui-btn">self-identity</button>
+                        <br>
+                        <br> 其实我本来想做个点击展开的（下面注释掉那段）但是看起来有一点丑，不如就默认显示第一段？？？
+                        <!--                         <div class="layui-collapse" lay-accordion>
+                            <div class="layui-colla-item">
+                                <h2 class="layui-colla-title">read first paragraph</h2>
+                                <div class="layui-colla-content layui-show">as i lay dying .....</div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Tibet Glacial Water</div>
+                    <div class="layui-card-body">
+                        <button class="layui-btn">ucla</button>
+                        <button class="layui-btn">why school</button>
+                        <button class="layui-btn">self-identity</button>
+                        <br>
+                        <br> 其实我本来想做个点击展开的（下面注释掉那段）但是看起来有一点丑，不如就默认显示第一段？？？
+                        <div class="layui-collapse" lay-accordion>
+                            <div class="layui-colla-item">
+                                <h2 class="layui-colla-title">read first paragraph</h2>
+                                <div class="layui-colla-content layui-show">as i lay dying .....</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Tibet Glacial Water</div>
+                    <div class="layui-card-body">
+                        <button class="layui-btn">ucla</button>
+                        <button class="layui-btn">why school</button>
+                        <button class="layui-btn">self-identity</button>
+                        <br>
+                        <br> 我是一篇写得很好的文书
+                    </div>
+                </div>
+            </div>
+                        <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Tibet Glacial Water</div>
+                    <div class="layui-card-body">
+                        <button class="layui-btn">ucla</button>
+                        <button class="layui-btn">why school</button>
+                        <button class="layui-btn">self-identity</button>
+                        <br>
+                        <br> 我是一篇写得很好的文书34343
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Tibet Glacial Water</div>
+                    <div class="layui-card-body">
+                        <button class="layui-btn">ucla</button>
+                        <button class="layui-btn">why school</button>
+                        <button class="layui-btn">self-identity</button>
+                        <br>
+                        <br> 我是一篇写得很好的文书
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">Tibet Glacial Water</div>
+                    <div class="layui-card-body">
+                        <button class="layui-btn">ucla</button>
+                        <button class="layui-btn">why school</button>
+                        <button class="layui-btn">self-identity</button>
+                        <br>
+                        <br> 我是一篇写得很好的文书
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="layui/layui.js"></script>
