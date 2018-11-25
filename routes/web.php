@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth'], function () {
+//Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'applicant'], function () {
         Route::get('/create', 'ApplicationController@newApplicationForm')->name('newApplicationForm');
         Route::post('/create', 'ApplicationController@createApplication');
@@ -34,4 +34,4 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('/create', 'EssayController@submitEssay');
         });
     });
-});
+//});

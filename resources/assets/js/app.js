@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('ExampleComponent', require('./components/ExampleComponent.vue'));
 Vue.component('NavBar', require('./components/NavBar.vue'));
 Vue.component('EssayForm', require('./components/EssayForm.vue'));
+Vue.component('ApplicantForm', require('./components/ApplicantForm.vue'));
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 

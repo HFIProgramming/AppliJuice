@@ -17,10 +17,10 @@ class ApplicationController extends Controller
 
     public function newApplicationForm()
     {
-        if(!empty(Auth::user()->applicant()))
-        {
-            return "existed";
-        }
+//        if(!empty(Auth::user()->applicant()))
+//        {
+//            return "existed";
+//        }
         return view('applicantInfo.create');
     }
 

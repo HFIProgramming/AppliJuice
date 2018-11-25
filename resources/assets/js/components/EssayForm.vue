@@ -24,6 +24,7 @@
     </el-form-item>
 </el-form>
 </template>
+<!--@TODO fix explicit key-->
 
 <script>
     module.exports = {
