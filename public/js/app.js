@@ -51698,16 +51698,33 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
 
 module.exports = {
     data: function data() {
         return {
             form: {
-                first: '',
-                last: '',
-                anonymous: false
-            }
+                first_name: '',
+                last_name: '',
+                offers: []
+            },
+            anonymous: false,
+            submitDisabled: false
         };
+    },
+
+    methods: {
+        submit: function submit() {
+            this.submitDisabled = true;
+            axios.post('/applicant/create', this.form).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error.message);
+            });
+        }
     }
 };
 
@@ -51729,29 +51746,29 @@ var render = function() {
         [
           _c("el-switch", {
             model: {
-              value: _vm.form.anonymous,
+              value: _vm.anonymous,
               callback: function($$v) {
-                _vm.$set(_vm.form, "anonymous", $$v)
+                _vm.anonymous = $$v
               },
-              expression: "form.anonymous"
+              expression: "anonymous"
             }
           })
         ],
         1
       ),
       _vm._v(" "),
-      !_vm.form.anonymous
+      !_vm.anonymous
         ? _c(
             "el-form-item",
             { attrs: { label: "First Name" } },
             [
               _c("el-input", {
                 model: {
-                  value: _vm.form.first,
+                  value: _vm.form.first_name,
                   callback: function($$v) {
-                    _vm.$set(_vm.form, "first", $$v)
+                    _vm.$set(_vm.form, "first_name", $$v)
                   },
-                  expression: "form.first"
+                  expression: "form.first_name"
                 }
               })
             ],
@@ -51759,24 +51776,39 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      !_vm.form.anonymous
+      !_vm.anonymous
         ? _c(
             "el-form-item",
             { attrs: { label: "Last Name" } },
             [
               _c("el-input", {
                 model: {
-                  value: _vm.form.last,
+                  value: _vm.form.last_name,
                   callback: function($$v) {
-                    _vm.$set(_vm.form, "last", $$v)
+                    _vm.$set(_vm.form, "last_name", $$v)
                   },
-                  expression: "form.last"
+                  expression: "form.last_name"
                 }
               })
             ],
             1
           )
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        [
+          _c(
+            "el-button",
+            {
+              attrs: { type: "primary", disbaled: _vm.submitDisabled },
+              on: { click: _vm.submit }
+            },
+            [_vm._v("冲鸭!")]
+          )
+        ],
+        1
+      )
     ],
     1
   )

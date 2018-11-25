@@ -26,7 +26,12 @@ class ApplicationController extends Controller
 
     public function createApplication(Request $request)
     {
-        $applicant = $request->user()->applicant()->create($request);
+//        $applicant = $request->user()->applicant()->create($request);
+        $applicant = $request->user()->applicant()->create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'visibility' => 'hfi' //@TODO ?
+        ]);
         $offers = $request->offers;
         foreach($offers as $offer)
         {
@@ -36,6 +41,7 @@ class ApplicationController extends Controller
             }
             $applicant->offers()->create(['college_id' => $college->id]);
         }
+
         return 'Success';
     }
 

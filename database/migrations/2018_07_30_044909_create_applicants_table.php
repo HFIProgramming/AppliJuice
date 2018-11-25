@@ -18,7 +18,7 @@ class CreateApplicantsTable extends Migration
             $table->integer('user_id');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->string('nationality')->nullable();
             $table->text('visibility');//For now: HFI, public
 //            $table->string('anonymous');
