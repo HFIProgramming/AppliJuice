@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\College;
 use App\Essay;
+use App\EssayTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,17 @@ class EssayController extends Controller
     //
     public function essayForm(Request $request)
     {
-        return view('essay.create');
+        $tag_types = EssayTag::all()->pluck('type')->unique()->values();
+        $existingTags = $tag_types->map(function ($tag_type) {
+           return [
+               'name' => $tag_type,
+               'tags' => EssayTag::where('type', $tag_type)->get()->pluck('tag')
+           ];
+        });
+        return $existingTags;
+        return view('essay.create', [
+            'existingTags'
+        ]);
     }
 
     public function submitEssay(Request $request)

@@ -30,7 +30,7 @@ class ApplicationController extends Controller
         $applicant = $request->user()->applicant()->create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'visibility' => 'hfi' //@TODO ?
+            'visibility' => $request->visibility == "true" ? "public" : "hfi" //@TODO ?
         ]);
         $offers = $request->offers;
         foreach($offers as $offer)

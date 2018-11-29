@@ -51475,9 +51475,15 @@ module.exports = {
                     others: ''
                 }
             },
-            availableTags: [{ name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] }, { name: "college", tags: ['Caltech', 'Cornell', 'Pomona', 'Tsinghua', 'Harvey Mudd', 'MIT'] }, { name: "others", tags: ['admitted', 'rejected', 'waitlisted'] }]
+            availableTags: this.existingTags
+            //                [
+            //                    { name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] },
+            //                    { name: "college", tags: ['Caltech', 'Cornell', 'Pomona', 'Tsinghua', 'Harvey Mudd', 'MIT'] },
+            //                    { name: "others", tags: ['admitted', 'rejected', 'waitlisted']}
+            //                ],
         };
     },
+    props: ['existingTags'],
     methods: {
         addTag: function addTag(tagGroupIndex) {
             var name = this.availableTags[tagGroupIndex].name.toString();
@@ -51702,6 +51708,10 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
 
 module.exports = {
     data: function data() {
@@ -51709,7 +51719,8 @@ module.exports = {
             form: {
                 first_name: '',
                 last_name: '',
-                offers: []
+                offers: [],
+                visibility: false
             },
             anonymous: false,
             submitDisabled: false
@@ -51718,9 +51729,13 @@ module.exports = {
 
     methods: {
         submit: function submit() {
+            var _this = this;
+
             this.submitDisabled = true;
             axios.post('/applicant/create', this.form).then(function (response) {
-                console.log(response);
+                _this.$alert('点击确定以跳转', response.data, {
+                    confirmButtonText: '确定',
+                    callback: function callback(action) {} });
             }).catch(function (error) {
                 console.log(error.message);
             });
@@ -51797,11 +51812,29 @@ var render = function() {
       _vm._v(" "),
       _c(
         "el-form-item",
+        { attrs: { label: "Who Can View Your Materials?" } },
+        [
+          _c("el-switch", {
+            attrs: { activeText: "Public", inactiveText: "HFI Only" },
+            model: {
+              value: _vm.form.visibility,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "visibility", $$v)
+              },
+              expression: "form.visibility"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
         [
           _c(
             "el-button",
             {
-              attrs: { type: "primary", disbaled: _vm.submitDisabled },
+              attrs: { type: "primary", disabled: _vm.submitDisabled },
               on: { click: _vm.submit }
             },
             [_vm._v("冲鸭!")]

@@ -44,13 +44,15 @@
                         others:''
                     }
                 },
-                availableTags:[
-                    { name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] },
-                    { name: "college", tags: ['Caltech', 'Cornell', 'Pomona', 'Tsinghua', 'Harvey Mudd', 'MIT'] },
-                    { name: "others", tags: ['admitted', 'rejected', 'waitlisted']}
-                ],
+                availableTags: this.existingTags
+//                [
+//                    { name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] },
+//                    { name: "college", tags: ['Caltech', 'Cornell', 'Pomona', 'Tsinghua', 'Harvey Mudd', 'MIT'] },
+//                    { name: "others", tags: ['admitted', 'rejected', 'waitlisted']}
+//                ],
             }
         },
+        props: ['existingTags'],
         methods:{
             addTag: function(tagGroupIndex) {
                 var name = this.availableTags[tagGroupIndex].name.toString();
