@@ -51473,8 +51473,8 @@ module.exports = {
                     prompt_type: '',
                     college: '',
                     others: ''
-                }
-            },
+                    //                    @TODO 他妈的 大坑 有空再把上面两个做成动态
+                } },
             availableTags: this.existingTags
             //                [
             //                    { name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] },
@@ -51483,7 +51483,7 @@ module.exports = {
             //                ],
         };
     },
-    props: ['existingTags'],
+    props: ['existingTags', 'tagTypes'],
     methods: {
         addTag: function addTag(tagGroupIndex) {
             var name = this.availableTags[tagGroupIndex].name.toString();
@@ -51548,13 +51548,13 @@ var render = function() {
         "el-form-item",
         { attrs: { label: "Tags" } },
         [
-          _vm._l(_vm.availableTags, function(tagGroup, index) {
+          _vm._l(_vm.availableTags, function(tagGroup, i) {
             return [
               _c("br"),
               _vm._v(" "),
               _c(
                 "el-form-item",
-                { attrs: { label: tagGroup.name } },
+                { attrs: { label: tagGroup.nameText } },
                 [
                   _c(
                     "el-row",
@@ -51580,7 +51580,7 @@ var render = function() {
                                 ) {
                                   return null
                                 }
-                                _vm.addTag(index)
+                                _vm.addTag(i)
                               }
                             },
                             model: {
@@ -51611,7 +51611,10 @@ var render = function() {
                           }
                         },
                         _vm._l(tagGroup.tags, function(tag) {
-                          return _c("el-checkbox", { attrs: { label: tag } })
+                          return _c("el-checkbox", {
+                            key: tag.id,
+                            attrs: { label: tag }
+                          })
                         })
                       )
                     ],

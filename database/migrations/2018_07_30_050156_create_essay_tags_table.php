@@ -17,6 +17,7 @@ class CreateEssayTagsTable extends Migration
             $table->increments('id');
             $table->string('tag');
             $table->string('type');//prompt_type(ps, why major, why school, etc.), school, major
+            $table->string('type_text');
             $table->timestamps();
         });
     }

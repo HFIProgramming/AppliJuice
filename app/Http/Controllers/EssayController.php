@@ -13,16 +13,17 @@ class EssayController extends Controller
     //
     public function essayForm(Request $request)
     {
-        $tag_types = EssayTag::all()->pluck('type')->unique()->values();
-        $existingTags = $tag_types->map(function ($tag_type) {
+        $tagTypes = EssayTag::all()->pluck('type')->unique()->values();
+        $existingTags = $tagTypes->map(function ($tag_type) {
            return [
                'name' => $tag_type,
-               'tags' => EssayTag::where('type', $tag_type)->get()->pluck('tag')
+               'tags' => EssayTag::where('type', $tag_type)->get()->pluck('tag'),
+               'nameText' => EssayTag::where('type', $tag_type)->first()->type_text
            ];
         });
-        return $existingTags;
-        return view('essay.create', [
-            'existingTags'
+        return view('application.createEssay', [
+            'existingTags' => $existingTags,
+            'tagTypes' => $tagTypes
         ]);
     }
 
