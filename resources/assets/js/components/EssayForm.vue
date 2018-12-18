@@ -12,8 +12,8 @@
                 <br>
                 <el-form-item :label="tagGroup.nameText">
                     <el-row :gutter="20">
-                        <el-col :span="4">
-                            <el-input v-model="form.newTagInputs[tagGroup.name]" placeholder="A New Tag?"
+                        <el-col :span="8">
+                            <el-input v-model="form.newTagInputs[tagGroup.name]" :placeholder="'A Different ' + tagGroup.nameText + '? Type and enter.'"
                                       @keyup.enter.native="addTag(i)"></el-input>
                         </el-col>
                         <el-checkbox-group v-model="form.tagList[tagGroup.name]">
@@ -22,6 +22,12 @@
                     </el-row>
                 </el-form-item>
             </template>
+        </el-form-item>
+        <el-form-item label="Remark">
+            <el-input type="textarea" v-model="form.remark" :rows="3" placeholder="把自己批判一番？"></el-input>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="submit" :disabled="submitDisabled">冲鸭!</el-button>
         </el-form-item>
     </el-form>
 </template>
@@ -36,16 +42,18 @@
                     tagList: {
                         prompt_type: [],
                         college: [],
-                        others: []
+                        result: []
                     },
                     newTagInputs: {
                         prompt_type: '',
                         college: '',
-                        others: ''
-                    }
+                        result: ''
+                    },
+                    remark: ''
 //                    @TODO 他妈的 大坑 有空再把上面两个做成动态
                 },
-                availableTags: this.existingTags
+                availableTags: this.existingTags,
+                submitDisabled: false
 //                [
 //                    { name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] },
 //                    { name: "college", tags: ['Caltech', 'Cornell', 'Pomona', 'Tsinghua', 'Harvey Mudd', 'MIT'] },
@@ -55,11 +63,22 @@
         },
         props: ['existingTags', 'tagTypes'],
         methods: {
-            addTag: function (tagGroupIndex) {
-                var name = this.availableTags[tagGroupIndex].name.toString();
+            addTag (tagGroupIndex) {
+                const name = this.availableTags[tagGroupIndex].name.toString();
                 this.availableTags[tagGroupIndex].tags.push(this.form.newTagInputs[name]);
                 this.form.tagList[name].push(this.form.newTagInputs[name]);
                 this.form.newTagInputs[name] = '';
+            },
+            submit () {
+                axios.post('/essay/create', this.form).then(response => {
+                    console.log(response.data);
+                    this.$alert('点击确定以跳转', response.data, {
+                        confirmButtonText: '确定',
+                        callback: action => {
+                        }});
+                }).catch(error => {
+                    console.log(error);
+                });
             }
         }
     }

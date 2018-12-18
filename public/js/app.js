@@ -51457,6 +51457,12 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 module.exports = {
     data: function data() {
@@ -51467,15 +51473,18 @@ module.exports = {
                 tagList: {
                     prompt_type: [],
                     college: [],
-                    others: []
+                    result: []
                 },
                 newTagInputs: {
                     prompt_type: '',
                     college: '',
-                    others: ''
-                    //                    @TODO 他妈的 大坑 有空再把上面两个做成动态
-                } },
-            availableTags: this.existingTags
+                    result: ''
+                },
+                remark: ''
+                //                    @TODO 他妈的 大坑 有空再把上面两个做成动态
+            },
+            availableTags: this.existingTags,
+            submitDisabled: false
             //                [
             //                    { name: "prompt_type", tags: ['WhyMajor', 'WhySchool', 'Extended'] },
             //                    { name: "college", tags: ['Caltech', 'Cornell', 'Pomona', 'Tsinghua', 'Harvey Mudd', 'MIT'] },
@@ -51490,6 +51499,18 @@ module.exports = {
             this.availableTags[tagGroupIndex].tags.push(this.form.newTagInputs[name]);
             this.form.tagList[name].push(this.form.newTagInputs[name]);
             this.form.newTagInputs[name] = '';
+        },
+        submit: function submit() {
+            var _this = this;
+
+            axios.post('/essay/create', this.form).then(function (response) {
+                console.log(response.data);
+                _this.$alert('点击确定以跳转', response.data, {
+                    confirmButtonText: '确定',
+                    callback: function callback(action) {} });
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     }
 };
@@ -51562,10 +51583,15 @@ var render = function() {
                     [
                       _c(
                         "el-col",
-                        { attrs: { span: 4 } },
+                        { attrs: { span: 8 } },
                         [
                           _c("el-input", {
-                            attrs: { placeholder: "A New Tag?" },
+                            attrs: {
+                              placeholder:
+                                "A Different " +
+                                tagGroup.nameText +
+                                "? Type and enter."
+                            },
                             nativeOn: {
                               keyup: function($event) {
                                 if (
@@ -51627,6 +51653,43 @@ var render = function() {
           })
         ],
         2
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "Remark" } },
+        [
+          _c("el-input", {
+            attrs: {
+              type: "textarea",
+              rows: 3,
+              placeholder: "把自己批判一番？"
+            },
+            model: {
+              value: _vm.form.remark,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "remark", $$v)
+              },
+              expression: "form.remark"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        [
+          _c(
+            "el-button",
+            {
+              attrs: { type: "primary", disabled: _vm.submitDisabled },
+              on: { click: _vm.submit }
+            },
+            [_vm._v("冲鸭!")]
+          )
+        ],
+        1
       )
     ],
     1

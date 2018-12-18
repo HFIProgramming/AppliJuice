@@ -31,6 +31,6 @@ class createCollegeAndTag
         //
         $collegeName = $event->collegeName;
         College::create(['name' => $collegeName]);
-        EssayTag::create(['tag' => $collegeName, 'type' => 'school']);
+        EssayTag::create(['tag' => $collegeName, 'type' => 'college', 'type_text' => 'College']);
     }
 }

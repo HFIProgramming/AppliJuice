@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class EssayTag extends Model
 {
     //
-    protected $fillable = ['tag', 'type'];
+    protected $fillable = ['tag', 'type', 'type_text'];
 
     public function essays()
     {
